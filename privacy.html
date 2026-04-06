@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — Street Eats Haldwani</title>
-  <meta name="description" content="Read the Street Eats Privacy Policy. We are committed to protecting your personal data. Governed by the Indian IT Act 2000." />
-  <meta name="keywords" content="Street Eats privacy policy, data protection, user data Haldwani food app" />
-  <meta property="og:title" content="Privacy Policy — Street Eats" />
+  <title>Street Eats — Haldwani's First Street Food Delivery App</title>
+  <meta name="description" content="Street Eats delivers authentic local street food — momos, chowmein, burgers, chaat and more — right to your door in Haldwani. Open daily 5 PM to 9 PM. Launching April 2026." />
+  <meta name="keywords" content="Street Eats, Haldwani food delivery, street food delivery, momos delivery Haldwani, local food app Uttarakhand" />
+  <meta name="author" content="Street Eats" />
+  <meta property="og:title" content="Street Eats — Haldwani's First Street Food Delivery App" />
+  <meta property="og:description" content="Order momos, chowmein, burgers and more from your favourite local street stalls. Delivered in 30 minutes. Launching April 2026." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="canonical" href="https://streeteats.in/privacy.html" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="canonical" href="https://streeteats.in/" />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,7 +39,7 @@
   <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu">
+  <div class="mobile-menu" role="list">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="index.html#how-it-works">How It Works</a>
@@ -43,124 +48,182 @@
   </div>
 </nav>
 
-<!-- PAGE HERO -->
-<section class="page-hero dot-bg" aria-labelledby="privacy-heading">
-  <h1 id="privacy-heading"><span>Privacy</span> Policy</h1>
-  <p style="color:var(--muted); font-size:1.05rem; font-family:'Patrick Hand',cursive;">Your privacy matters to us. Here's how we handle your data.</p>
-  <span class="orange-underline"></span>
+<!-- HERO -->
+<section class="hero dot-bg" aria-labelledby="hero-heading">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">🚀 Launching April 2026</div>
+      <h1 id="hero-heading">
+        Haldwani's First<br/>
+        <span>Street Food</span><br/>
+        Delivery App
+      </h1>
+      <p>Order momos, burgers, chowmein and more — delivered from your favourite local street stalls straight to your door in just 30 minutes. Open daily 5 PM to 9 PM.</p>
+      <div class="hero-btns">
+        <a href="#download" class="btn-primary">📱 Download App (Coming Soon)</a>
+        <a href="about.html" class="btn-secondary">Learn More →</a>
+      </div>
+    </div>
+    <div class="hero-img-wrapper">
+      <div class="hero-img-box">
+        <img src="logo.jpg" alt="Street Eats — Street Food Cart delivering local food" loading="eager" />
+      </div>
+      <div class="bounce-circle" aria-hidden="true">🔥</div>
+      <div class="hand-arrow" aria-hidden="true">↙</div>
+    </div>
+  </div>
 </section>
 
-<!-- CONTENT -->
-<main>
-<div class="legal-content">
-  <div class="legal-meta">
-    <strong>Last Updated:</strong> April 2026 &nbsp;|&nbsp;
-    <strong>Governing Law:</strong> Indian IT Act, 2000 &nbsp;|&nbsp;
-    <strong>Contact:</strong> <a href="mailto:privacy@streeteats.in" style="color:var(--primary);">privacy@streeteats.in</a>
+<!-- FEATURES -->
+<section id="features" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">✨ Why choose us?</span>
+      <h2 id="features-heading" class="section-title">Why Street Eats?</h2>
+      <p class="section-subtitle">We're not just another food app. We're built specifically for Haldwani's street food culture.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card tape tape-left reveal">
+        <div class="icon-circle">🛺</div>
+        <h3>Local Street Food Only</h3>
+        <p>We only list authentic local street stalls — not restaurants. The real momos wala, the chaat corner, the burger thela. That's Street Eats.</p>
+      </div>
+      <div class="feature-card tape reveal">
+        <div class="icon-circle">⚡</div>
+        <h3>Fast Delivery</h3>
+        <p>30 minutes or less, every order. We operate daily from 5 PM to 9 PM so you get fresh, hot food exactly when the evening hunger strikes.</p>
+      </div>
+      <div class="feature-card tape tape-left reveal">
+        <div class="icon-circle">💰</div>
+        <h3>Best Price Guaranteed</h3>
+        <p>No hidden charges. No platform fee. Free delivery on every order. You pay exactly what the stall charges — nothing extra, ever.</p>
+      </div>
+      <div class="feature-card tape reveal">
+        <div class="icon-circle">🤝</div>
+        <h3>Trusted Local Riders</h3>
+        <p>Our delivery partners are known faces from your own neighbourhood. Reliable, punctual, and always friendly. Your order is in good hands.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <p>Welcome to Street Eats ("we", "our", "us"). We are committed to protecting the personal information of our users, vendors, and delivery partners. This Privacy Policy explains what data we collect, why we collect it, how we use it, and your rights as a user. By using the Street Eats app or website, you agree to the terms described in this policy.</p>
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="dot-bg" aria-labelledby="hiw-heading">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:1rem;">
+      <span class="section-tag">📖 Simple process</span>
+      <h2 id="hiw-heading" class="section-title">How It Works</h2>
+      <p class="section-subtitle" style="margin:0 auto;">Three steps and your favourite street food is on its way to you.</p>
+    </div>
+    <div class="steps-wrapper">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <div class="icon-circle icon-circle-gold" style="margin:0 auto 1rem; width:52px; height:52px; font-size:1.4rem;">📱</div>
+        <h3>Download the App</h3>
+        <p>Get Street Eats from Google Play Store. Sign up in seconds with your phone number — no lengthy forms needed.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">2</div>
+        <div class="icon-circle icon-circle-gold" style="margin:0 auto 1rem; width:52px; height:52px; font-size:1.4rem;">🍜</div>
+        <h3>Choose Your Street Food</h3>
+        <p>Browse local stalls near you. Pick your favourite — momos, chowmein, burgers, chaat — and place your order in seconds.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">3</div>
+        <div class="icon-circle icon-circle-gold" style="margin:0 auto 1rem; width:52px; height:52px; font-size:1.4rem;">🚴</div>
+        <h3>Get It Delivered Home</h3>
+        <p>Your rider picks it up fresh and brings it straight to your address. Hot, fast, and hassle-free in under 30 minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h2>1. Information We Collect</h2>
+<!-- FOOD CATEGORIES -->
+<section id="menu" aria-labelledby="food-heading">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">🍽️ Explore the menu</span>
+      <h2 id="food-heading" class="section-title">What We Deliver</h2>
+      <p class="section-subtitle">All your favourite street foods, delivered fresh from local stalls in Haldwani.</p>
+    </div>
+    <div class="food-grid" role="list">
+      <div class="food-card reveal" role="listitem">
+        <span class="emoji">🥟</span>
+        <span>Momos</span>
+      </div>
+      <div class="food-card reveal" role="listitem">
+        <span class="emoji">🍔</span>
+        <span>Burger</span>
+      </div>
+      <div class="food-card reveal" role="listitem">
+        <span class="emoji">🍜</span>
+        <span>Chowmein</span>
+      </div>
+      <div class="food-card reveal" role="listitem">
+        <span class="emoji">🍕</span>
+        <span>Pizza</span>
+      </div>
+      <div class="food-card reveal" role="listitem">
+        <span class="emoji">🫙</span>
+        <span>Chaat</span>
+      </div>
+      <div class="food-card reveal" role="listitem">
+        <span class="emoji">🍝</span>
+        <span>Maggi</span>
+      </div>
+      <div class="food-card reveal" role="listitem">
+        <span class="emoji">🥪</span>
+        <span>Sandwich</span>
+      </div>
+      <div class="food-card reveal" role="listitem">
+        <span class="emoji">🧃</span>
+        <span>Cold Drink</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h3>1.1 Personal Information</h3>
-  <p>When you register or use the Street Eats app, we may collect the following personal information:</p>
-  <ul>
-    <li>Full name</li>
-    <li>Email address</li>
-    <li>Phone number</li>
-    <li>Delivery address(es)</li>
-    <li>Profile photo (optional)</li>
-  </ul>
+<!-- STATS -->
+<section class="stats-section" aria-labelledby="stats-heading">
+  <div class="container">
+    <h2 id="stats-heading" class="section-title reveal" style="text-align:center; color:var(--text-white); margin-bottom:2.5rem;">Street Eats by the Numbers</h2>
+    <div class="stats-grid">
+      <div class="stat-blob reveal">
+        <h3>5+</h3>
+        <p>Trusted Vendors</p>
+      </div>
+      <div class="stat-blob reveal">
+        <h3>4</h3>
+        <p>Cities Coming Soon</p>
+      </div>
+      <div class="stat-blob reveal">
+        <h3>30</h3>
+        <p>Min Delivery Time</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h3>1.2 Order and Transaction Data</h3>
-  <p>We collect data related to your orders and transactions, including:</p>
-  <ul>
-    <li>Order history (items ordered, order amounts, timestamps)</li>
-    <li>Payment method used (COD or online)</li>
-    <li>Delivery location details</li>
-    <li>Ratings and reviews you submit</li>
-  </ul>
-
-  <h3>1.3 Location Data</h3>
-  <p>We collect your location data when you use the app in order to assign nearby delivery riders and accurately deliver your food. Location tracking is only active while the app is in use. You may disable location access through your device settings, but this will affect delivery functionality.</p>
-
-  <h3>1.4 Device and Technical Data</h3>
-  <p>We automatically collect certain technical information including your device type, operating system version, app version, IP address, and general usage analytics. This data is used for performance monitoring and bug fixing only.</p>
-
-  <h2>2. How We Use Your Data</h2>
-  <p>We use your personal information strictly for the following purposes:</p>
-  <ul>
-    <li>Processing and fulfilling your food orders</li>
-    <li>Coordinating delivery through our rider network</li>
-    <li>Sending order confirmation, delivery updates, and support notifications</li>
-    <li>Improving app features and user experience based on usage patterns</li>
-    <li>Sending promotional communications (only with your consent — you can unsubscribe at any time)</li>
-    <li>Preventing fraud, fake orders, and misuse of the platform</li>
-    <li>Complying with applicable Indian laws and regulations</li>
-  </ul>
-
-  <h2>3. Data Sharing and Disclosure</h2>
-  <p>We do not sell, rent, or trade your personal data to any third parties for their commercial use. Your data may be shared in the following limited circumstances:</p>
-  <ul>
-    <li><strong>Delivery Riders:</strong> Your name, address, and order details are shared with the assigned delivery partner only for the purpose of completing your delivery.</li>
-    <li><strong>Vendors:</strong> The vendor fulfilling your order receives only the items ordered and special instructions — not your personal contact details.</li>
-    <li><strong>Legal Compliance:</strong> We may disclose your information if required to do so by Indian law, court order, or government authority.</li>
-    <li><strong>Business Transfer:</strong> In the event of a merger or acquisition, user data may be transferred to the acquiring entity, and you will be notified in advance.</li>
-  </ul>
-
-  <h2>4. Third-Party Services</h2>
-  <p>Street Eats uses the following trusted third-party services to operate the platform. Each of these services has their own privacy policies governing their use of your data:</p>
-  <ul>
-    <li><strong>Supabase</strong> — Backend database and user authentication (GDPR-compliant)</li>
-    <li><strong>Firebase (Google)</strong> — Push notifications and crash analytics</li>
-    <li><strong>Paytm / Razorpay</strong> — Online payment processing (PCI-DSS compliant)</li>
-    <li><strong>Google Maps</strong> — Location and delivery tracking</li>
-  </ul>
-
-  <h2>5. Data Security</h2>
-  <p>We implement industry-standard security measures to protect your personal data, including encrypted data transmission (HTTPS/TLS), secure backend storage, and access control restrictions. However, no digital system is 100% secure. In the unlikely event of a data breach, we will notify affected users within 72 hours as required by applicable law.</p>
-
-  <h2>6. Data Retention</h2>
-  <p>We retain your personal data for as long as your account is active or as needed to provide services. If you delete your account, your personal data will be permanently deleted within 30 days, except for data required to comply with legal obligations (such as financial transaction records).</p>
-
-  <h2>7. Your Rights</h2>
-  <p>As a Street Eats user, you have the following rights regarding your personal data:</p>
-  <ul>
-    <li><strong>Right to Access:</strong> Request a copy of all personal data we hold about you</li>
-    <li><strong>Right to Correction:</strong> Update or correct inaccurate personal information</li>
-    <li><strong>Right to Deletion:</strong> Request deletion of your account and all associated personal data</li>
-    <li><strong>Right to Portability:</strong> Request your data in a machine-readable format</li>
-    <li><strong>Right to Object:</strong> Opt out of promotional communications at any time</li>
-  </ul>
-  <p>To exercise any of these rights, email us at <a href="mailto:privacy@streeteats.in" style="color:var(--primary);">privacy@streeteats.in</a> with your registered email address and request details. We will respond within 7 business days.</p>
-
-  <h2>8. Cookie Policy</h2>
-  <p>The Street Eats website uses minimal cookies to ensure proper functioning of the site. We use:</p>
-  <ul>
-    <li><strong>Essential Cookies:</strong> Required for basic site functionality and session management</li>
-    <li><strong>Analytics Cookies:</strong> Anonymous usage statistics to improve the website (can be declined)</li>
-  </ul>
-  <p>You can manage or disable cookies through your browser settings at any time. Disabling essential cookies may affect website functionality.</p>
-
-  <h2>9. Children's Privacy</h2>
-  <p>Street Eats is not intended for use by children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us immediately at <a href="mailto:privacy@streeteats.in" style="color:var(--primary);">privacy@streeteats.in</a> and we will delete the data promptly.</p>
-
-  <h2>10. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. When we make significant changes, we will notify you via app notification or email at least 7 days before the change takes effect. Continued use of Street Eats after the effective date constitutes acceptance of the updated policy.</p>
-
-  <h2>11. Governing Law</h2>
-  <p>This Privacy Policy is governed by and construed in accordance with the Information Technology Act, 2000, and the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, applicable in India. Any disputes arising from this policy shall be subject to the jurisdiction of courts in Haldwani, Uttarakhand.</p>
-
-  <h2>12. Contact Us</h2>
-  <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact our Privacy Officer at:</p>
-  <ul>
-    <li>Email: <a href="mailto:privacy@streeteats.in" style="color:var(--primary);">privacy@streeteats.in</a></li>
-    <li>General Support: <a href="mailto:support@streeteats.in" style="color:var(--primary);">support@streeteats.in</a></li>
-    <li>Location: Haldwani, Uttarakhand, India</li>
-  </ul>
-</div>
-</main>
+<!-- DOWNLOAD CTA -->
+<section id="download" class="dot-bg" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-card tape thumbtack reveal">
+      <h2 id="cta-heading" style="font-size:1.9rem; margin-bottom:0.75rem;">Available Soon on<br/><span style="color:var(--primary)">Google Play Store</span></h2>
+      <p style="color:var(--muted); margin-bottom:0.5rem;">Be the first to know when Street Eats launches in Haldwani.<br/>Drop your email and we'll notify you the moment the app goes live.</p>
+      <form class="email-form notify-form" aria-label="Email notification signup">
+        <input type="email" class="email-input" placeholder="your@email.com" required aria-label="Email address" />
+        <button type="submit" class="btn-primary">Notify Me 🔔</button>
+      </form>
+      <div class="play-badge" aria-label="Google Play Store — Coming Soon">
+        <span style="font-size:1.5rem;">▶</span>
+        <div>
+          <div style="font-size:0.7rem; letter-spacing:1px; text-transform:uppercase;">Coming soon on</div>
+          <div style="font-size:0.95rem; font-weight:600;">Google Play Store</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer role="contentinfo">
@@ -170,8 +233,8 @@
       <p>Haldwani's first hyperlocal street food delivery app. Bringing the best local stalls right to your doorstep, daily 5 PM to 9 PM.</p>
       <p style="margin-top:0.5rem; color:var(--muted); font-size:0.85rem; font-style:italic;">"Ghar Baithe Street Ka Swad"</p>
       <div class="footer-social">
-        <a href="https://instagram.com/streeteats.hld" class="social-btn" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
-        <a href="mailto:support@streeteats.in" class="social-btn">✉️ Email</a>
+        <a href="https://instagram.com/streeteats.hld" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">📸 Instagram</a>
+        <a href="/cdn-cgi/l/email-protection#a6d5d3d6d6c9d4d2e6d5d2d4c3c3d2c3c7d2d588cfc8" class="social-btn" aria-label="Email us">✉️ Email</a>
       </div>
     </div>
     <div class="footer-links">
@@ -180,6 +243,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
       </ul>
     </div>
     <div class="footer-links">
@@ -197,9 +261,8 @@
   </div>
 </footer>
 
-<a href="https://wa.me/918630140017" class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">💬</a>
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/919999999999" class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">💬</a>
 <a href="#" class="scroll-top" aria-label="Scroll to top">↑</a>
 
-<script src="script.js"></script>
-</body>
-</html>
+<scrip
