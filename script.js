@@ -1,13 +1,11 @@
 // ─── NAVBAR ───
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
-
 if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
   });
-
   document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
       hamburger.classList.remove('open');
@@ -20,7 +18,7 @@ if (hamburger && mobileMenu) {
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
   const href = link.getAttribute('href');
-  if (href === currentPage || (currentPage === '' && href === 'index.html') || 
+  if (href === currentPage || (currentPage === '' && href === 'index.html') ||
       (currentPage === 'index.html' && href === 'index.html')) {
     link.classList.add('active');
   }
@@ -35,7 +33,6 @@ window.addEventListener('scroll', () => {
     scrollTopBtn?.classList.remove('visible');
   }
 });
-
 if (scrollTopBtn) {
   scrollTopBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -43,18 +40,44 @@ if (scrollTopBtn) {
   });
 }
 
-// ─── REVEAL ON SCROLL ───
-const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+// ─── REVEAL ON SCROLL — FIXED ───
+function initReveal() {
+  const revealEls = document.querySelectorAll('.reveal');
 
-revealEls.forEach(el => observer.observe(el));
+  // FALLBACK: agar IntersectionObserver nahi chala toh sab visible kar do
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0,        // 0 = jaise hi 1px bhi visible ho, trigger ho jao
+    rootMargin: '0px 0px -30px 0px'  // thoda pehle trigger
+  });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // SAFETY NET: 2 second baad jo bhi visible nahi hua usse force show karo
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 2000);
+}
+
+// DOM ready hone pe run karo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initReveal);
+} else {
+  initReveal();
+}
 
 // ─── EMAIL FORM ───
 const emailForms = document.querySelectorAll('.notify-form');
@@ -92,7 +115,7 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 3500);
 }
 
-// ─── FOOD CARD HOVER SOUNDS (visual only) ───
+// ─── FOOD CARD HOVER ───
 document.querySelectorAll('.food-card').forEach(card => {
   card.addEventListener('mouseenter', () => {
     const r = (Math.random() - 0.5) * 6;
