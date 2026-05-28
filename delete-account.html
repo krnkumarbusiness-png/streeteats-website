@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account — Streat Eats Haldwani</title>
+  <meta name="description" content="Request deletion of your Streat Eats account and personal data. We process all requests within 30 days." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://Streateats-website.vercel.app/delete-account.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #FF6B35;
+      --primary-light: #FF8C42;
+      --primary-dark: #E05200;
+      --bg: #FFF8F0;
+      --surface: #FFFFFF;
+      --surface-warm: #FFF3EC;
+      --text: #1A1A1A;
+      --text-secondary: #3D3D3D;
+      --muted: #6B7280;
+      --text-white: #FFFFFF;
+      --warning: #D97706;
+      --error: #DC2626;
+      --success: #16A34A;
+      --border: #E5E7EB;
+      --shadow-sm: 4px 4px 0px 0px #E05200;
+      --shadow-lg: 8px 8px 0px 0px #E05200;
+      --shadow-red: 4px 4px 0px 0px #991B1B;
+      --radius-wobbly: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      --radius-wobbly-2: 15px 225px 15px 255px / 225px 15px 255px 15px;
+      --radius-wobbly-3: 120px 20px 180px 10px / 10px 180px 20px 120px;
+      --radius-wobbly-4: 30px 200px 30px 150px / 150px 30px 200px 30px;
+      --radius-btn: 220px 12px 180px 12px / 12px 180px 12px 220px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Patrick Hand', cursive;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Kalam', cursive;
+      font-weight: 700; line-height: 1.2; color: var(--text);
+    }
+
+    .dot-bg {
+      background-color: var(--surface-warm);
+      background-image: radial-gradient(rgba(255,107,53,0.18) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px dashed rgba(255,107,53,0.3);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Kalam', cursive; font-size: 1.7rem; font-weight: 700;
+      color: var(--primary); text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .nav-logo img {
+      width: 38px; height: 38px;
+      border-radius: var(--radius-wobbly-3);
+      border: 2px solid var(--primary); object-fit: cover;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'Patrick Hand', cursive; font-size: 1rem;
+      color: var(--muted); text-decoration: none;
+      padding: 0.4rem 0.85rem; border-radius: 999px; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-cta {
+      font-family: 'Patrick Hand', cursive;
+      background: var(--primary); border: 3px solid var(--primary-dark);
+      color: var(--text-white); padding: 0.45rem 1.2rem;
+      border-radius: var(--radius-btn); cursor: pointer;
+      font-size: 0.9rem; box-shadow: var(--shadow-sm);
+      transition: all 0.1s; text-decoration: none; display: inline-block; font-weight: 600;
+    }
+    .nav-cta:hover {
+      background: var(--primary-dark); box-shadow: 2px 2px 0px 0px var(--primary-dark);
+      transform: translate(-1px,-1px); color: var(--text-white);
+    }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 3px; background: var(--primary); border-radius: 4px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: absolute; top: 68px; left: 0; right: 0;
+      background: rgba(255,255,255,0.99); border-bottom: 3px solid var(--primary);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 1rem 1.5rem; flex-direction: column; gap: 0.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Patrick Hand', cursive; font-size: 1.1rem;
+      color: var(--text-secondary); text-decoration: none;
+      padding: 0.6rem 0; border-bottom: 1px dashed rgba(255,107,53,0.25); transition: color 0.15s;
+    }
+    .mobile-menu a:hover { color: var(--primary); }
+
+    /* PAGE HERO */
+    .page-hero { padding: 5rem 1.5rem 3rem; text-align: center; }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 0.75rem; }
+    .page-hero h1 span { color: var(--error); }
+    .page-hero p { color: var(--muted); font-size: 1.05rem; font-family: 'Patrick Hand', cursive; }
+
+    .red-underline {
+      display: block; width: 120px; height: 6px;
+      background: var(--error); border-radius: 4px;
+      margin: 0.5rem auto 0; transform: rotate(-1.5deg);
+    }
+
+    /* MAIN CONTENT */
+    .delete-wrapper {
+      max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 6rem;
+    }
+
+    /* WARNING BOX */
+    .warning-box {
+      background: #FEF2F2;
+      border: 3px solid var(--error);
+      border-radius: var(--radius-wobbly-2);
+      box-shadow: var(--shadow-red);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+
+    .warning-icon { font-size: 2rem; flex-shrink: 0; }
+
+    .warning-box h3 {
+      font-family: 'Kalam', cursive; font-size: 1.2rem;
+      color: var(--error); margin-bottom: 0.4rem;
+    }
+
+    .warning-box p { font-size: 0.95rem; color: #7F1D1D; line-height: 1.6; }
+
+    /* INFO CARDS */
+    .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 3px solid var(--primary);
+      border-radius: var(--radius-wobbly-3);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .info-card:nth-child(1) { transform: rotate(-1deg); border-color: var(--error); box-shadow: 4px 4px 0px 0px #991B1B; }
+    .info-card:nth-child(2) { transform: rotate(0.8deg); }
+    .info-card:nth-child(3) { transform: rotate(-0.5deg); }
+    .info-card:nth-child(4) { transform: rotate(1.2deg); }
+    .info-card:hover { box-shadow: var(--shadow-lg); transform: rotate(0deg) translate(-2px,-2px); }
+
+    .info-card .card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .info-card h4 { font-size: 1rem; color: var(--text); margin-bottom: 0.4rem; }
+    .info-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+
+    /* STEPS */
+    .steps-section { margin: 2.5rem 0; }
+
+    .steps-section h2 {
+      font-size: 1.5rem; color: var(--primary);
+      margin-bottom: 1.5rem; padding-bottom: 0.4rem;
+      border-bottom: 2px dashed rgba(255,107,53,0.3);
+    }
+
+    .step-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .step-item {
+      background: var(--surface);
+      border: 3px solid var(--primary);
+      border-radius: var(--radius-wobbly-4);
+      box-shadow: var(--shadow-sm);
+      padding: 1.25rem 1.5rem;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: transform 0.1s;
+    }
+
+    .step-item:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-lg); }
+
+    .step-num-badge {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--primary);
+      border-radius: 200px 8px 180px 8px / 8px 180px 8px 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Kalam', cursive; font-size: 1.1rem;
+      color: var(--text-white); font-weight: 700;
+      box-shadow: 2px 2px 0px 0px var(--primary-dark);
+    }
+
+    .step-item h4 { font-size: 1rem; color: var(--text); margin-bottom: 0.2rem; }
+    .step-item p { font-size: 0.9rem; color: var(--muted); }
+
+    /* EMAIL REQUEST FORM */
+    .email-section {
+      background: var(--surface);
+      border: 4px solid var(--primary);
+      border-radius: var(--radius-wobbly);
+      box-shadow: var(--shadow-lg);
+      padding: 2.5rem 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .email-section::before {
+      content: '📌';
+      position: absolute; top: -14px; right: 18px; font-size: 1.3rem;
+    }
+
+    .email-section h2 {
+      font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;
+    }
+
+    .email-section p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+    .email-link-box {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: var(--surface-warm);
+      border: 3px solid var(--primary);
+      border-radius: var(--radius-btn);
+      box-shadow: var(--shadow-sm);
+      padding: 0.9rem 1.75rem;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      transition: all 0.1s;
+    }
+
+    .email-link-box:hover {
+      background: var(--primary); color: var(--text-white);
+      box-shadow: 2px 2px 0px 0px var(--primary-dark);
+      transform: translate(-2px,-2px);
+    }
+
+    .email-template {
+      background: var(--surface-warm);
+      border: 3px dashed var(--primary);
+      border-radius: var(--radius-wobbly-3);
+      padding: 1.5rem; margin-top: 1.75rem;
+      text-align: left;
+    }
+
+    .email-template h4 {
+      font-size: 0.85rem; color: var(--muted); text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 0.75rem;
+    }
+
+    .email-template pre {
+      font-family: 'Patrick Hand', cursive; font-size: 0.92rem;
+      color: var(--text-secondary); line-height: 1.7;
+      white-space: pre-wrap; word-break: break-word;
+    }
+
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 0.75rem;
+      background: var(--surface); border: 2px solid var(--primary);
+      border-radius: 999px; padding: 0.35rem 1rem;
+      font-family: 'Patrick Hand', cursive; font-size: 0.85rem;
+      color: var(--primary); cursor: pointer; transition: all 0.1s;
+      box-shadow: 2px 2px 0px 0px var(--primary-dark);
+    }
+
+    .copy-btn:hover { background: var(--primary); color: var(--text-white); box-shadow: none; }
+
+    /* WHAT GETS DELETED */
+    .delete-list-section { margin: 2rem 0; }
+
+    .delete-list-section h2 {
+      font-size: 1.5rem; color: var(--primary); margin-bottom: 1.25rem;
+      padding-bottom: 0.4rem; border-bottom: 2px dashed rgba(255,107,53,0.3);
+    }
+
+    .delete-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .delete-item {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      background: var(--surface); border: 2px solid #FCA5A5;
+      border-radius: var(--radius-wobbly-4);
+      padding: 0.9rem 1rem;
+    }
+
+    .delete-item .di-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .delete-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+    .keep-item {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      background: #F0FDF4; border: 2px solid #86EFAC;
+      border-radius: var(--radius-wobbly-4);
+      padding: 0.9rem 1rem;
+    }
+
+    .keep-section { margin-top: 1.5rem; }
+    .keep-section h3 { font-size: 1.1rem; color: var(--success); margin-bottom: 1rem; }
+    .keep-item p { font-size: 0.9rem; color: #166534; }
+
+    /* FAQ */
+    .faq-section { margin: 2.5rem 0; }
+    .faq-section h2 {
+      font-size: 1.5rem; color: var(--primary); margin-bottom: 1.5rem;
+      padding-bottom: 0.4rem; border-bottom: 2px dashed rgba(255,107,53,0.3);
+    }
+
+    .faq-item {
+      background: var(--surface); border: 3px solid var(--primary);
+      border-radius: var(--radius-wobbly-3);
+      box-shadow: var(--shadow-sm); margin-bottom: 1rem;
+      overflow: hidden; transition: transform 0.1s;
+    }
+
+    .faq-item:hover { transform: translate(-1px,-1px); box-shadow: var(--shadow-lg); }
+
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 1.5rem; text-align: left;
+      font-family: 'Kalam', cursive; font-size: 1.05rem; color: var(--text);
+      font-weight: 700;
+    }
+
+    .faq-arrow { font-size: 1rem; color: var(--primary); transition: transform 0.25s; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 1.5rem;
+    }
+
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 1.5rem 1.25rem; }
+    .faq-a p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+
+    /* TOAST */
+    .toast {
+      position: fixed; bottom: 1.5rem; left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--success); color: var(--text-white);
+      font-family: 'Patrick Hand', cursive;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-wobbly-4);
+      box-shadow: 4px 4px 0px 0px #14532D;
+      z-index: 9999; transition: transform 0.3s;
+      font-size: 1rem; font-weight: 600;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* FOOTER */
+    footer {
+      background: var(--surface-warm);
+      border-top: 3px dashed rgba(255,107,53,0.3);
+      padding: 3.5rem 1.5rem 1.5rem;
+    }
+    .footer-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem; margin-bottom: 2.5rem;
+    }
+    .footer-brand h2 { font-family: 'Kalam', cursive; font-size: 1.8rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .footer-brand p { color: var(--muted); font-size: 0.92rem; max-width: 260px; }
+    .footer-social { margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .social-btn {
+      background: var(--surface); border: 2px solid var(--primary);
+      border-radius: var(--radius-wobbly-3); padding: 0.4rem 0.8rem;
+      font-size: 0.85rem; color: var(--primary); text-decoration: none;
+      transition: all 0.1s; font-weight: 600;
+      box-shadow: 2px 2px 0px 0px var(--primary-dark);
+    }
+    .social-btn:hover { background: var(--primary); color: var(--text-white); transform: rotate(-2deg); box-shadow: none; }
+    .footer-links h4 { font-family: 'Kalam', cursive; font-size: 1.1rem; color: var(--primary); margin-bottom: 1rem; }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links ul a { color: var(--muted); text-decoration: none; font-size: 0.92rem; transition: color 0.15s; }
+    .footer-links ul a:hover { color: var(--primary); }
+    .footer-bottom {
+      max-width: 1100px; margin: 0 auto;
+      border-top: 2px dashed rgba(255,107,53,0.2); padding-top: 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+    .footer-bottom p { color: var(--muted); font-size: 0.85rem; }
+
+    .whatsapp-fab {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      width: 56px; height: 56px; background: #25D366;
+      border-radius: var(--radius-wobbly-3); box-shadow: 4px 4px 0px 0px #128C7E;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; text-decoration: none; z-index: 2000;
+      transition: transform 0.15s; border: 3px solid rgba(255,255,255,0.35);
+    }
+    .whatsapp-fab:hover { transform: rotate(-5deg) scale(1.1); }
+
+    @media (max-width: 700px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .info-grid { grid-template-columns: 1fr; }
+      .delete-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <a href="index.html" class="nav-logo" aria-label="Streat Eats Home">
+    <img src="logo.jpg" alt="Streat Eats Logo" width="38" height="38" />
+    Streat Eats
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#how-it-works">How It Works</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="index.html#download" class="nav-cta">Download App</a>
+  <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html#download">Download App</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero dot-bg" aria-labelledby="delete-heading">
+  <h1 id="delete-heading">Delete My <span>Account</span></h1>
+  <p>Want to leave? We'll make it easy. Your data, your choice.</p>
+  <span class="red-underline"></span>
+</section>
+
+<!-- MAIN -->
+<main>
+<div class="delete-wrapper">
+
+  <!-- WARNING -->
+  <div class="warning-box">
+    <div class="warning-icon">⚠️</div>
+    <div>
+      <h3>Account deletion is permanent</h3>
+      <p>Once your account is deleted, all your personal data, order history, and saved addresses will be permanently removed from our systems within 30 days. This action cannot be undone. If you have any pending orders or active deliveries, please wait for them to complete before requesting deletion.</p>
+    </div>
+  </div>
+
+  <!-- WHAT HAPPENS -->
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="card-icon">🗑️</div>
+      <h4>Permanent Deletion</h4>
+      <p>Your account and all personal data will be permanently and irreversibly deleted from our servers within 30 days of your request.</p>
+    </div>
+    <div class="info-card">
+      <div class="card-icon">⏱️</div>
+      <h4>30-Day Processing</h4>
+      <p>We process all deletion requests within 30 days as required by the Indian IT Act, 2000. You will receive an email confirmation once done.</p>
+    </div>
+    <div class="info-card">
+      <div class="card-icon">📧</div>
+      <h4>Email Confirmation</h4>
+      <p>After submitting your request, you'll receive a confirmation email within 2 business days acknowledging receipt of your request.</p>
+    </div>
+    <div class="info-card">
+      <div class="card-icon">🔒</div>
+      <h4>Secure Process</h4>
+      <p>Your request will be verified against your registered email address to prevent unauthorized deletions. Your security is our priority.</p>
+    </div>
+  </div>
+
+  <!-- HOW TO REQUEST -->
+  <div class="steps-section">
+    <h2>How to Request Account Deletion</h2>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num-badge">1</div>
+        <div>
+          <h4>Send an email from your registered address</h4>
+          <p>Use the same email address you used to sign up for Streat Eats. Requests from unregistered emails cannot be processed for security reasons.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-badge">2</div>
+        <div>
+          <h4>Use the subject line: "Account Deletion Request"</h4>
+          <p>This helps us identify and prioritize your request in our support queue. You can use the email template below.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-badge">3</div>
+        <div>
+          <h4>Include your registered phone number</h4>
+          <p>To verify your identity, mention the phone number linked to your Streat Eats account in the email body.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-badge">4</div>
+        <div>
+          <h4>Wait for confirmation — up to 2 business days</h4>
+          <p>We'll send a confirmation email acknowledging your request. Actual data deletion happens within 30 days from the confirmation date.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL CTA -->
+  <div class="email-section">
+    <h2>📩 Send Deletion Request</h2>
+    <p>Click the button below to open your email app with our support address pre-filled, or copy and paste the template below.</p>
+
+    <a href="mailto:support@theStreateats.in?subject=Account%20Deletion%20Request&body=Hi%20Streat%20Eats%20Team%2C%0A%0AI%20would%20like%20to%20request%20permanent%20deletion%20of%20my%20Streat%20Eats%20account.%0A%0ARegistered%20Email%3A%20%5Byour-email%40example.com%5D%0ARegistered%20Phone%3A%20%5Byour-phone-number%5D%0AReason%20(optional)%3A%20%5BYour%20reason%5D%0A%0APlease%20confirm%20receipt%20of%20this%20request%20and%20proceed%20with%20account%20deletion.%0A%0AThank%20you." class="email-link-box">
+      ✉️ Send Email to support@theStreateats.in
+    </a>
+
+    <div class="email-template">
+      <h4>📋 Email Template — Copy This</h4>
+      <pre id="emailTemplate">Subject: Account Deletion Request
+
+Hi Streat Eats Team,
+
+I would like to request permanent deletion of my Streat Eats account.
+
+Registered Email: [your-email@example.com]
+Registered Phone: [your-phone-number]
+Reason (optional): [Your reason]
+
+Please confirm receipt and proceed with account deletion.
+
+Thank you.</pre>
+      <button class="copy-btn" onclick="copyTemplate()">📋 Copy Template</button>
+    </div>
+  </div>
+
+  <!-- WHAT GETS DELETED -->
+  <div class="delete-list-section">
+    <h2>What Gets Deleted</h2>
+    <div class="delete-grid">
+      <div class="delete-item">
+        <div class="di-icon">❌</div>
+        <p>Your name, email address, and phone number</p>
+      </div>
+      <div class="delete-item">
+        <div class="di-icon">❌</div>
+        <p>Saved delivery addresses and landmarks</p>
+      </div>
+      <div class="delete-item">
+        <div class="di-icon">❌</div>
+        <p>Order history and past transaction details</p>
+      </div>
+      <div class="delete-item">
+        <div class="di-icon">❌</div>
+        <p>Ratings, reviews, and feedback you submitted</p>
+      </div>
+      <div class="delete-item">
+        <div class="di-icon">❌</div>
+        <p>Referral codes and creator program data</p>
+      </div>
+      <div class="delete-item">
+        <div class="di-icon">❌</div>
+        <p>Push notification tokens and preferences</p>
+      </div>
+    </div>
+
+    <div class="keep-section">
+      <h3>✅ What We Retain (Legal Requirement)</h3>
+      <div class="delete-grid">
+        <div class="keep-item">
+          <div class="di-icon">📄</div>
+          <p>Anonymized transaction records required for accounting and tax compliance under Indian law (up to 7 years)</p>
+        </div>
+        <div class="keep-item">
+          <div class="di-icon">⚖️</div>
+          <p>Records required to resolve active disputes, fraud investigations, or legal proceedings</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        Can I reactivate my account after deletion? <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>No. Once your account deletion is processed and confirmed, the action is irreversible. You would need to create a brand new account if you wish to use Streat Eats again in the future.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        What happens to my pending order if I request deletion? <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>If you have any pending or active orders, please wait until they are fully delivered before requesting account deletion. We will not process deletion requests while an active order is in progress.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        How long does the deletion process take? <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>You will receive an acknowledgement email within 2 business days of your request. The actual permanent deletion of all your personal data from our systems will be completed within 30 days of the confirmation date.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        Can I delete my account from inside the app? <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Currently, account deletion is handled via email request to ensure identity verification and security. We are working on adding a self-service in-app deletion option in a future update.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">
+        Will I get a refund for any outstanding balance? <span class="faq-arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <p>Any outstanding refunds, cashback, or credits will be settled before your account is deleted. Please ensure your UPI ID or payment details are updated so we can process any pending amounts before deletion.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>🍜 Streat Eats</h2>
+      <p>Haldwani's first hyperlocal Streat food delivery app. Bringing the best local stalls right to your doorstep, daily 5 PM to 9 PM.</p>
+      <p style="margin-top:0.5rem; color:var(--muted); font-size:0.85rem; font-style:italic;">"Ghar Baithe Streat Ka Swad"</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/Streateats.hld" class="social-btn" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+        <a href="mailto:support@theStreateats.in" class="social-btn">✉️ Email</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#how-it-works">How It Works</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms &amp; Conditions</a></li>
+        <li><a href="refund.html">Refund Policy</a></li>
+        <li><a href="delete-account.html">Delete Account</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Streat Eats. All rights reserved. Made with ❤️ in Haldwani, Uttarakhand.</p>
+    <p>📍 Haldwani, Uttarakhand, India</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/919999999999" class="whatsapp-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">💬</a>
+
+<div class="toast" id="toast">✅ Email template copied!</div>
+
+<script>
+  // Hamburger
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+  }
+
+  // FAQ accordion
+  function toggleFAQ(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Copy template
+  function copyTemplate() {
+    const text = document.getElementById('emailTemplate').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    });
+  }
+</script>
+</body>
+</html>
